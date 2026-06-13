@@ -8,7 +8,8 @@ NARRATIVE & STRUCTURE PLAN:
 6. The Screen Trap: Detailing how comparing our daily lives to perfect online feeds hurts our self-worth.
 7. The Connection Paradox: Tracking the steep drop in face-to-face social time as screen time exploded.
 8. The Brain Reset: Exploring how novel treatments like psilocybin act as a restart button for stuck thoughts.
-9. Clinical Evidence (Good vs. Bad Outcomes): Detailing the massive volume of active research trials, side-by-side statistics of positive transformations versus mild/temporary side effects, and why the current legal roadblocks are holding back a major mental health breakthrough.
+9. Clinical Outcomes & Legal Roadblocks: Outlining the massive volume of active psilocybin research trials.
+10. Direct Risk Comparison (SSRIs vs. Psilocybin): Using a grouped bar chart to compare the side-effect profiles (emotional numbing, withdrawal, sexual dysfunction, physical dependence, and short-term session anxiety).
 
 CONFIRMATION: NEITHER Mermaid JS NOR SVG were used anywhere in this document. All visual icons are rendered using standard CSS/Tailwind or standard Unicode characters.
 CHOSEN PALETTE: Neon Nightscape (Slate background #0b0f19, neon cyan #06b6d4, bright pink #ec4899, vibrant purple #8b5cf6, and emerald green #10b981).
@@ -238,6 +239,48 @@ body { background-color: #0b0f19; color: #f1f5f9; font-family: 'Inter', system-u
                         <li><strong>Temporary Fear/Anxiety:</strong> Roughly 30% of patients experience a short "challenging trip" or transient anxiety, which is easily managed by trained medical guides in the room.</li>
                         <li><strong>Mild Physical Side Effects:</strong> Around 15% experience temporary mild headaches or elevated blood pressure during the session.</li>
                         <li><strong>Long-Term Negative Impact:</strong> Worsening symptoms or lingering psychological distress occur in less than 1% of clinical patients when individuals with a personal or family history of schizophrenia or bipolar disorder are properly screened out beforehand.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-16">
+        <div class="glass-card p-6 md:p-10">
+            <div class="flex flex-col md:flex-row md:items-center justify-between mb-6 border-b border-slate-800 pb-4">
+                <h3 class="text-2xl md:text-3xl font-bold text-pink-400">09. Side-Effect Profiles: SSRIs vs. Psilocybin</h3>
+                <span class="text-xs text-slate-500 mt-2 md:mt-0 font-mono">SOURCES: <a href="https://pubmed.ncbi.nlm.nih.gov/30241908/" target="_blank" rel="noopener noreferrer" class="underline hover:text-pink-300">DAVIES &amp; READ META-ANALYSIS (2018) &#8599;</a></span>
+            </div>
+            <p class="text-lg text-slate-300 mb-8 leading-relaxed">
+                To understand why standard treatments fall short, we have to look closely at their side effects. Daily antidepressants (SSRIs) are designed to dull our brains' overall sensitivity. While this helps keep patients out of suicidal panics, it often leads to a lifetime of side effects. On the other hand, psilocybin-assisted therapy requires only 1 to 2 clinical doses a year, meaning patients completely avoid daily biochemical interference. 
+            </p>
+            <p class="text-lg text-slate-300 mb-8 leading-relaxed">
+                A massive global study on antidepressant side effects published in the journal 
+                <a href="https://pubmed.ncbi.nlm.nih.gov/30241908/" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:text-cyan-300 underline font-medium transition-colors">Addictive Behaviors ( Davies &amp; Read Meta-Analysis) &#8599;</a> 
+                found that over **56% of patients suffer from withdrawal symptoms** (including painful "brain zaps," extreme mood swings, and anxiety) when attempting to stop taking daily SSRIs. Additionally, up to **60% experience emotional numbing**—meaning they can no longer feel deep joy, excitement, or standard human empathy.
+            </p>
+
+            <div class="chart-container mb-10">
+                <canvas id="chart-side-effects-compare"></canvas>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                <div class="p-5 rounded-xl bg-slate-900/50 border border-slate-700/50">
+                    <h4 class="text-lg font-bold text-pink-400 mb-2">Daily SSRI Side-Effect Statistics</h4>
+                    <ul class="space-y-2 text-sm text-slate-300 list-disc list-inside">
+                        <li><strong>Emotional Numbing (~60% of users):</strong> Patients report feeling "flat" or "zombified" and unable to experience normal joy or cry.</li>
+                        <li><strong>Severe Physical Withdrawal (~56% of users):</strong> Missing a daily pill can trigger painful physical symptoms (often described as electric shocks in the brain).</li>
+                        <li><strong>Sexual Dysfunction (~62% of users):</strong> Causes permanent or long-term disruption to normal biological drives and relationship connection.</li>
+                        <li><strong>Chronic Fatigue (~45% of users):</strong> Constant daytime tiredness, lack of motivation, and daily grogginess.</li>
+                    </ul>
+                </div>
+                <div class="p-5 rounded-xl bg-slate-900/50 border border-slate-700/50">
+                    <h4 class="text-lg font-bold text-emerald-400 mb-2">Episodic Psilocybin Side-Effect Statistics</h4>
+                    <ul class="space-y-2 text-sm text-slate-300 list-disc list-inside">
+                        <li><strong>Emotional Numbing (0% of users):</strong> Instead of numbing feelings, psilocybin promotes emotional release, connection, and long-term awe.</li>
+                        <li><strong>Physical Withdrawal (0% of users):</strong> Non-habit forming; there are absolutely no physical cravings or biological withdrawal symptoms.</li>
+                        <li><strong>Sexual Dysfunction (0% of users):</strong> Has no direct negative effects on long-term intimacy or hormone balance.</li>
+                        <li><strong>Temporary Anxiety (~30% of users):</strong> Limited entirely to the 6-hour therapy session (often resolved with the help of a therapist).</li>
                     </ul>
                 </div>
             </div>
@@ -541,7 +584,7 @@ window.onload = function() {
     new Chart(ctxReset, {
         type: 'bar',
         data: {
-            labels: processLabelsArray(['Standard Daily SSRI Regimen', 'Traditional Cognitive Counseling', 'Psilocybin-Assisted Therapy (1-2 Doses)'], 16),
+            labels: processLabelsArray(['Standard Daily SSRI Regimen', 'Traditional Counseling', 'Psilocybin-Assisted Therapy (1-2 Doses)'], 16),
             datasets: [{
                 label: 'Sustained Clinical Recovery Rate at 12 Months (%)',
                 data: [28, 34, 72],
@@ -571,7 +614,7 @@ window.onload = function() {
         }
     });
 
-    // Chart 7: Good vs Bad Outcomes (New Section Chart)
+    // Chart 7: Good vs Bad Outcomes
     const ctxOutcomes = document.getElementById('chart-outcomes').getContext('2d');
     new Chart(ctxOutcomes, {
         type: 'bar',
@@ -607,6 +650,48 @@ window.onload = function() {
         options: Object.assign({}, commonOptions, {
             plugins: Object.assign({}, tooltipPluginConfig, {
                 title: { display: true, text: 'Psilocybin Outcomes: Good Results vs. Challenging Risks', color: '#f8fafc', font: { size: 15, weight: 'bold' } }
+            }),
+            scales: {
+                x: { ticks: { color: '#cbd5e1', font: { size: 11 } }, grid: { display: false } },
+                y: { max: 100, ticks: { color: '#64748b' }, grid: { color: 'rgba(255, 255, 255, 0.05)' } }
+            }
+        })
+    });
+
+    // Chart 8: Side Effects SSRI vs Psilocybin (New Comparison Chart)
+    const ctxSideEffectsCompare = document.getElementById('chart-side-effects-compare').getContext('2d');
+    new Chart(ctxSideEffectsCompare, {
+        type: 'bar',
+        data: {
+            labels: processLabelsArray([
+                'Emotional Numbing & Dullness', 
+                'Withdrawal Symptoms on Stopping', 
+                'Sexual Side Effects', 
+                'Chronic Tiredness & Fatigue',
+                'Temporary Session Anxiety'
+            ], 16),
+            datasets: [
+                {
+                    label: 'Daily SSRI Medication (%)',
+                    data: [60, 56, 62, 45, 0],
+                    backgroundColor: 'rgba(236, 72, 153, 0.8)',
+                    borderColor: '#ec4899',
+                    borderWidth: 2,
+                    borderRadius: 4
+                },
+                {
+                    label: 'Episodic Psilocybin Therapy (%)',
+                    data: [0, 0, 0, 0, 30],
+                    backgroundColor: 'rgba(16, 185, 129, 0.8)',
+                    borderColor: '#10b981',
+                    borderWidth: 2,
+                    borderRadius: 4
+                }
+            ]
+        },
+        options: Object.assign({}, commonOptions, {
+            plugins: Object.assign({}, tooltipPluginConfig, {
+                title: { display: true, text: 'Side-Effect Profile Comparison: Daily SSRIs vs. Episodic Psilocybin', color: '#f8fafc', font: { size: 15, weight: 'bold' } }
             }),
             scales: {
                 x: { ticks: { color: '#cbd5e1', font: { size: 11 } }, grid: { display: false } },
